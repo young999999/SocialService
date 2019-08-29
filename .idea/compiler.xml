@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="article" />
         <module name="common" />
         <module name="base1" />
+        <module name="qa" />
+        <module name="recruit" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -16,9 +19,12 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="article" options="-parameters" />
       <module name="base" options="-parameters" />
       <module name="base1" options="-parameters" />
       <module name="common" options="-parameters" />
+      <module name="qa" options="-parameters" />
+      <module name="recruit" options="-parameters" />
     </option>
   </component>
 </project>

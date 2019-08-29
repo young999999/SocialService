@@ -10,6 +10,9 @@
     <modules>
         <module>common</module>
         <module>base1</module>
+        <module>recruit</module>
+        <module>qa</module>
+        <module>article</module>
     </modules>
     <packaging>pom</packaging>
 
