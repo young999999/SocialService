@@ -7,8 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="article" />
-        <module name="common" />
         <module name="base1" />
+        <module name="common" />
+        <module name="gathering" />
         <module name="qa" />
         <module name="recruit" />
       </profile>

@@ -13,6 +13,7 @@
         <module>recruit</module>
         <module>qa</module>
         <module>article</module>
+        <module>gathering</module>
     </modules>
     <packaging>pom</packaging>
 
