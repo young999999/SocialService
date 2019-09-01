@@ -16,6 +16,8 @@
         <module>gathering</module>
         <module>spit</module>
 		<module>search</module>
+        <module>user</module>
+        <module>sms</module>
     </modules>
     <packaging>pom</packaging>
 

@@ -1,0 +1,13 @@
+server:
+  port: 9009
+spring:
+  application:
+    name: sms
+  rabbitmq:
+    host: 47.98.53.232
+
+#aliyun:
+#  sms:
+#    accessKeyId: LTAIpGYhPa6tmvUO
+#    accessKeySecret: tTUTTAqzIZx0xfaICzSzZzoKZT1dM0
+

@@ -14,6 +14,8 @@
         <module name="recruit" />
         <module name="search" />
         <module name="spit" />
+        <module name="tensquare_sms" />
+        <module name="user" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
