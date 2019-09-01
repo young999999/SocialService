@@ -15,6 +15,7 @@
         <module>article</module>
         <module>gathering</module>
         <module>spit</module>
+		<module>search</module>
     </modules>
     <packaging>pom</packaging>
 

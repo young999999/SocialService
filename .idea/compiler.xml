@@ -12,6 +12,7 @@
         <module name="gathering" />
         <module name="qa" />
         <module name="recruit" />
+        <module name="search" />
         <module name="spit" />
       </profile>
     </annotationProcessing>
