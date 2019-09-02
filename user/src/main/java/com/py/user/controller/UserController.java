@@ -1,19 +1,17 @@
 package com.py.user.controller;
-import java.util.List;
-import java.util.Map;
 
+import com.py.user.pojo.User;
+import com.py.user.service.UserService;
+import entity.PageResult;
+import entity.Result;
+import entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-import com.py.user.pojo.User;
-import com.py.user.service.UserService;
-
-import entity.PageResult;
-import entity.Result;
-import entity.StatusCode;
+import java.util.Map;
 /**
  * 控制器层
  * @author Administrator

@@ -13,8 +13,8 @@
         <module name="qa" />
         <module name="recruit" />
         <module name="search" />
+        <module name="sms" />
         <module name="spit" />
-        <module name="tensquare_sms" />
         <module name="user" />
       </profile>
     </annotationProcessing>
