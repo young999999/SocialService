@@ -2,7 +2,9 @@ package com.py.user.service;
 
 import com.py.user.dao.UserDao;
 import com.py.user.pojo.User;
+import io.jsonwebtoken.Claims;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -12,11 +14,13 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import util.IdWorker;
+import util.JwtUtil;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -43,6 +47,15 @@ public class UserService {
 
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+	@Autowired
+	private HttpServletRequest request;
+
+	@Autowired
+	private JwtUtil jwtUtil;
+
+
+
 	/**
 	 * 用户登录
 	 * @param mobile
@@ -148,6 +161,10 @@ public class UserService {
 	 * @param id
 	 */
 	public void deleteById(String id) {
+		String token = (String) request.getAttribute("claims_admin");
+		if (StringUtils.isEmpty(token)) {
+			throw new RuntimeException("权限不足！");
+		}
 		userDao.deleteById(id);
 	}
 

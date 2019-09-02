@@ -8,14 +8,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="spit" />
         <module name="search" />
-        <module name="base1" />
         <module name="qa" />
         <module name="common" />
+        <module name="user" />
         <module name="article" />
         <module name="sms" />
         <module name="recruit" />
         <module name="gathering" />
-        <module name="user" />
+        <module name="base1" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

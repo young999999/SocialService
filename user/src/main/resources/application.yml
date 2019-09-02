@@ -15,3 +15,7 @@ spring:
     host: 47.98.53.232
   rabbitmq:
     host: 47.98.53.232
+jwt:
+  config:
+    key: itcast
+    ttl: 3600000

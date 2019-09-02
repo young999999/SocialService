@@ -1,7 +1,7 @@
-package com.py.user.config;
+package com.py.qa.config;
 
 
-import com.py.user.interceptor.JwtInterceptor;
+import com.py.qa.interceptor.JwtInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;

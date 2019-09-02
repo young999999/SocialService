@@ -1,4 +1,5 @@
 package com.py.user.controller;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,6 +14,8 @@ import com.py.user.service.AdminService;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
+import util.JwtUtil;
+
 /**
  * 控制器层
  * @author Administrator
@@ -29,6 +32,10 @@ public class AdminController {
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+	@Autowired
+	private JwtUtil jwtUtil;
+
+
 	@PostMapping("/login")
 	public Result login(@RequestBody Admin admin) {
 		Admin adminLogined = adminService.login(admin);
@@ -37,11 +44,11 @@ public class AdminController {
 		}
 //		// 做一系列使得前后端可以通话的操作，采用jwt实现
 //		// 生成令牌
-//		String token = jwtUtil.createJWT(adminLogined.getId(), adminLogined.getLoginname(), "admin");
-//		Map<String, Object> map = new HashMap<>();
-//		map.put("token", token);
-//		map.put("role", "admin");
-		return new Result(true, StatusCode.OK, "登录成功");
+		String token = jwtUtil.createJWT(adminLogined.getId(), adminLogined.getLoginname(), "admin");
+		Map<String, Object> map = new HashMap<>();
+		map.put("token", token);
+		map.put("role", "admin");
+		return new Result(true, StatusCode.OK, "登录成功",map);
 	}
 
 	/**

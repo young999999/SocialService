@@ -10,7 +10,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import util.JwtUtil;
 
+import java.util.HashMap;
 import java.util.Map;
 /**
  * 控制器层
@@ -28,6 +30,9 @@ public class UserController {
 	@Autowired
 	private RedisTemplate redisTemplate;
 
+	@Autowired
+	private JwtUtil jwtUtil;
+
 	/**
 	 * 用户登录
 	 * @param user
@@ -40,11 +45,11 @@ public class UserController {
 			return new Result(false, StatusCode.LOGINERROR, "登录失败");
 		}
 		// 登录成功后的操作
-//		String token = jwtUtil.createJWT(user.getId(), user.getMobile(), "user");
-//		Map<String, Object> map = new HashMap<>();
-//		map.put("token", token);
-//		map.put("roles", "user");
-		return new Result(true, StatusCode.OK, "登录成功");
+		String token = jwtUtil.createJWT(user.getId(), user.getMobile(), "user");
+		Map<String, Object> map = new HashMap<>();
+		map.put("token", token);
+		map.put("roles", "user");
+		return new Result(true, StatusCode.OK, "登录成功",map);
 	}
 
 	/**
