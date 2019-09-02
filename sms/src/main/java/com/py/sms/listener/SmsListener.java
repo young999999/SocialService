@@ -23,10 +23,11 @@ public class SmsListener {
         String checkCode = map.get("check_code");
         System.out.println("手机号： " + mobile);
         System.out.println("验证码： " + checkCode);
-        try {
-            smsUtil.sendSms(mobile, "SMS_173347967", "findingway签名", "{\"code\": \"" + checkCode + "\"}");
-        } catch (ClientException e) {
-            e.printStackTrace();
-        }
+//        try {
+//        //调用发送短信的方法
+//            smsUtil.sendSms(mobile, "SMS_173347967", "findingway签名", "{\"code\": \"" + checkCode + "\"}");
+//        } catch (ClientException e) {
+//            e.printStackTrace();
+//        }
     }
 }

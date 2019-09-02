@@ -6,15 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="article" />
-        <module name="base1" />
-        <module name="common" />
-        <module name="gathering" />
-        <module name="qa" />
-        <module name="recruit" />
-        <module name="search" />
-        <module name="sms" />
         <module name="spit" />
+        <module name="search" />
+        <module name="base1" />
+        <module name="qa" />
+        <module name="common" />
+        <module name="article" />
+        <module name="sms" />
+        <module name="recruit" />
+        <module name="gathering" />
         <module name="user" />
       </profile>
     </annotationProcessing>
@@ -28,8 +28,13 @@
       <module name="base" options="-parameters" />
       <module name="base1" options="-parameters" />
       <module name="common" options="-parameters" />
+      <module name="gathering" options="-parameters" />
       <module name="qa" options="-parameters" />
       <module name="recruit" options="-parameters" />
+      <module name="search" options="-parameters" />
+      <module name="sms" options="-parameters" />
+      <module name="spit" options="-parameters" />
+      <module name="user" options="-parameters" />
     </option>
   </component>
 </project>

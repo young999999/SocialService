@@ -28,16 +28,47 @@ public class UserController {
 	@Autowired
 	private RedisTemplate redisTemplate;
 
+	/**
+	 * 用户登录
+	 * @param user
+	 * @return
+	 */
+	@PostMapping("/login")
+	public Result login(@RequestBody User user) {
+		user = userService.login(user.getMobile(), user.getPassword());
+		if (user == null) {
+			return new Result(false, StatusCode.LOGINERROR, "登录失败");
+		}
+		// 登录成功后的操作
+//		String token = jwtUtil.createJWT(user.getId(), user.getMobile(), "user");
+//		Map<String, Object> map = new HashMap<>();
+//		map.put("token", token);
+//		map.put("roles", "user");
+		return new Result(true, StatusCode.OK, "登录成功");
+	}
 
+	/**
+	 * 发送验证码
+	 * @param mobile
+	 * @return
+	 */
 	@PostMapping("/sendsms/{mobile}")
 	public Result sendSms(@PathVariable String mobile) {
 		userService.sendSms(mobile);
 		return new Result(true, StatusCode.OK, "发送成功");
 	}
+
+	/**
+	 * 注册
+	 * @param code
+	 * @param user
+	 * @return
+	 */
 	@PostMapping("/register/{code}")
 	public Result register(@PathVariable String code, @RequestBody User user) {
 		// 得到缓存中的验证码
 		String checkCode = (String) redisTemplate.opsForValue().get("check_code_" + user.getMobile());
+		//System.out.println("得到缓存中的验证码"+checkCode);
 		if (StringUtils.isEmpty(checkCode)) {
 			return new Result(false, StatusCode.ERROR, "请先获取手机验证码");
 		}

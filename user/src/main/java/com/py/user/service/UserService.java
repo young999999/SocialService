@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import util.IdWorker;
 
@@ -39,6 +40,22 @@ public class UserService {
 
 	@Autowired
 	private RabbitTemplate rabbitTemplate;
+
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	/**
+	 * 用户登录
+	 * @param mobile
+	 * @param password
+	 * @return
+	 */
+	public User login(String mobile, String password) {
+		User user = userDao.findByMobile(mobile);
+		if (user != null && bCryptPasswordEncoder.matches(password, user.getPassword())) {
+			return user;
+		}
+		return null;
+	}
 	/**
 	 * 发送短信
 	 *
@@ -48,7 +65,7 @@ public class UserService {
 		// 生成6位随机验证码
 		String checkCode = RandomStringUtils.randomNumeric(6);
 		// 向缓存中放一份，设置过期时间为6小时
-		redisTemplate.opsForValue().set("check_code_" + mobile, checkCode, 6, TimeUnit.HOURS);
+		redisTemplate.opsForValue().set("check_code_" + mobile, checkCode, 5, TimeUnit.MINUTES);
 		// 给用户发一份
 		Map<String, String> map = new HashMap<>();
 		map.put("mobile", mobile);
@@ -108,7 +125,7 @@ public class UserService {
 	public void add(User user) {
 		user.setId( idWorker.nextId()+"" );
 		// 密码加密
-		//user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		user.setFollowcount(0); // 关注数
 		user.setFanscount(0);   // 粉丝数
 		user.setOnline(0L);     // 在线时长
