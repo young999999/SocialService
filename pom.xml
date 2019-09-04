@@ -15,9 +15,11 @@
         <module>article</module>
         <module>gathering</module>
         <module>spit</module>
-		<module>search</module>
+        <module>search</module>
         <module>user</module>
         <module>sms</module>
+        <module>eureka</module>
+        <module>friend</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -53,7 +55,17 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
-
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Finchley.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <repositories>
         <repository>
             <id>spring-snapshots</id>

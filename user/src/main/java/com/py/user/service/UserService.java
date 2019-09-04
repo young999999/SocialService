@@ -13,6 +13,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import util.IdWorker;
 import util.JwtUtil;
 
@@ -54,7 +55,17 @@ public class UserService {
 	@Autowired
 	private JwtUtil jwtUtil;
 
-
+	/**
+	 * 更新被关注好友粉丝数跟用户自己的关注数
+	 * @param num
+	 * @param userId
+	 * @param friendId
+	 */
+	@Transactional
+	public void updateFansAndFollower(int num, String userId, String friendId) {
+		userDao.updateFansNum(num, friendId);
+		userDao.updateFollowNum(num, userId);
+	}
 
 	/**
 	 * 用户登录

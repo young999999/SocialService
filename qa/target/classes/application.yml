@@ -11,6 +11,14 @@ spring:
   jpa: 
     database: MySQL
     show-sql: true
+  main:
+      allow-bean-definition-overriding: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:6868/eureka/
+  instance:
+    prefer-ip-address: true   #允许模块之间跨域访问
 jwt:
   config:
     key: itcast

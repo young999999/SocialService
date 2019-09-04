@@ -2,7 +2,7 @@ server:
   port: 9004
 spring: 
   application:  
-    name: tensquare-article #指定服务名
+    name: article #指定服务名
   datasource:  
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://47.98.53.232:3306/tensquare_article?characterEncoding=UTF8
@@ -13,3 +13,11 @@ spring:
     show-sql: true
   redis:
     host: 47.98.53.232      #默认6379
+  main:
+    allow-bean-definition-overriding: true #当遇到同样名字的时候，是否允许覆盖注册
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:6868/eureka/
+  instance:
+    prefer-ip-address: true   #允许模块之间跨域访问

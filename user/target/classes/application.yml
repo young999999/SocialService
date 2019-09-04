@@ -15,7 +15,16 @@ spring:
     host: 47.98.53.232
   rabbitmq:
     host: 47.98.53.232
+  main:
+    allow-bean-definition-overriding: true
 jwt:
   config:
     key: itcast
     ttl: 3600000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:6868/eureka/
+  instance:
+    prefer-ip-address: true   #允许模块之间跨域访问

@@ -6,16 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spit" />
+        <module name="user" />
         <module name="search" />
         <module name="qa" />
         <module name="common" />
-        <module name="user" />
         <module name="article" />
+        <module name="eureka" />
         <module name="sms" />
         <module name="recruit" />
         <module name="gathering" />
+        <module name="friend" />
         <module name="base1" />
+        <module name="spit" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -28,6 +30,8 @@
       <module name="base" options="-parameters" />
       <module name="base1" options="-parameters" />
       <module name="common" options="-parameters" />
+      <module name="eureka" options="-parameters" />
+      <module name="friend" options="-parameters" />
       <module name="gathering" options="-parameters" />
       <module name="qa" options="-parameters" />
       <module name="recruit" options="-parameters" />

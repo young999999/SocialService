@@ -2,6 +2,7 @@ package com.py.qa.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.py.qa.client.Base1Client;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -36,6 +37,20 @@ public class ProblemController {
 
 	@Autowired
 	private HttpServletRequest request;
+
+	@Autowired
+	private Base1Client base1Client;
+
+	/**
+	 * qa模块调用base1模块测试
+	 * @param labelId
+	 * @return
+	 */
+	@RequestMapping(value = "/label/{labelId}",method = RequestMethod.GET)
+	public Result findByLabelId(@PathVariable String labelId){
+		Result result=base1Client.findById(labelId);
+		return result;
+	}
 
 	@RequestMapping(value = "/newlist/{labelid}/{page}/{size}",method = RequestMethod.GET)
 	public Result newlist(@PathVariable String labelid,
