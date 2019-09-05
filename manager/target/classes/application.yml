@@ -1,0 +1,28 @@
+#server:
+#  port: 9011
+##debug: true
+#spring:
+#  application:
+#    name: manager #指定服务名
+#  main:
+#    allow-bean-definition-overriding: true
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://127.0.0.1:6868/eureka/
+#  instance:
+#    prefer-ip-address: true   #允许模块之间跨域访问
+#jwt:
+#  config:
+#    key: itcast
+#zuul:
+#  routes:
+#      base1:
+#        path: /base/**
+#        serviceId: base1
+#      user:
+#        path: /user/**
+#        serviceId: user
+#      qa:
+#        path: /qa/**
+#        serviceId: qa

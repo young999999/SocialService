@@ -1,21 +1,21 @@
-server: 
-  port: 9001
-spring: 
-  application:  
-    name: base1 #指定服务名
-  datasource:  
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://47.98.53.232:3306/tensquare_base?characterEncoding=UTF8
-    username: root
-    password: 1234
-  jpa: 
-    database: MySQL
-    show-sql: true
-  main:
-    allow-bean-definition-overriding: true
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://127.0.0.1:6868/eureka/
-  instance:
-    prefer-ip-address: true   #允许模块之间跨域访问
+#server:
+#  port: 9001
+#spring:
+#  application:
+#    name: base1 #指定服务名
+#  datasource:
+#    driverClassName: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://47.98.53.232:3306/tensquare_base?characterEncoding=UTF8
+#    username: root
+#    password: 1234
+#  jpa:
+#    database: MySQL
+#    show-sql: true
+#  main:
+#    allow-bean-definition-overriding: true
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://127.0.0.1:6868/eureka/
+#  instance:
+#    prefer-ip-address: true   #允许模块之间跨域访问

@@ -1,0 +1,19 @@
+server:
+  port: 12000
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/young999999/SocialServer.git
+          password: young19951006.        #私有仓库添加用户验证
+          username: young999999
+  rabbitmq:
+    host: 47.98.53.232
+management:   # 暴露触发消息总线的地址
+  endpoint:
+    web:
+      exposure:
+        include: bus-refresh

@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      name: user     #不是此处的模块名，与放在码云上的文件名对应，即base1-dev.yml
+      profile: dev
+      label: master
+      uri: http://127.0.0.1:12000
