@@ -27,37 +27,37 @@
         </dependency>
     </dependencies>
 
-<!--    <build>-->
-<!--        &lt;!&ndash; 为当前工程起名称 &ndash;&gt;-->
-<!--        <finalName>app</finalName>-->
-<!--        <plugins>-->
-<!--            &lt;!&ndash; spring boot的maven插件 &ndash;&gt;-->
-<!--            <plugin>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--            </plugin>-->
-<!--            &lt;!&ndash; docker的maven插件，官网：https://github.com/spotify/docker‐maven‐plugin &ndash;&gt;-->
-<!--            <plugin>-->
-<!--                <groupId>com.spotify</groupId>-->
-<!--                <artifactId>docker-maven-plugin</artifactId>-->
-<!--                <version>0.4.13</version>-->
-<!--                <configuration>-->
-<!--                    &lt;!&ndash; 做成镜像后镜像的名称 &ndash;&gt;-->
-<!--                    <imageName>192.168.43.228:5000/${project.artifactId}:${project.parent.version}</imageName>-->
-<!--                    &lt;!&ndash; 基础镜像 &ndash;&gt;-->
-<!--                    <baseImage>jdk1.8</baseImage>-->
-<!--                    &lt;!&ndash; 执行命令，打jar包 &ndash;&gt;-->
-<!--                    <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>-->
-<!--                    <resources>-->
-<!--                        <resource>-->
-<!--                            <targetPath>/</targetPath>-->
-<!--                            <directory>${project.build.directory}</directory>-->
-<!--                            <include>${project.build.finalName}.jar</include>-->
-<!--                        </resource>-->
-<!--                    </resources>-->
-<!--                    <dockerHost>http://192.168.43.228:2375</dockerHost>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
-<!--    </build>-->
+    <build>
+        <!-- 为当前工程起名称 -->
+        <finalName>app</finalName>
+        <plugins>
+            <!-- spring boot的maven插件 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!-- docker的maven插件，官网：https://github.com/spotify/docker‐maven‐plugin -->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.13</version>
+                <configuration>
+                    <!-- 做成镜像后镜像的名称 -->
+                    <imageName>47.98.53.232:5000/${project.artifactId}:${project.parent.version}</imageName>
+                    <!-- 基础镜像 -->
+                    <baseImage>docker.io/java:8</baseImage>
+                    <!-- 执行命令，打jar包 -->
+                    <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                    <dockerHost>http://47.98.53.232:2375</dockerHost>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
